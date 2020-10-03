@@ -25,7 +25,7 @@ def format_response(document):
 
 def get_document():
     # document_key = "8aa85aaa5057cb7d40c5eba10cc7daf8"
-    url = 'http://localhost:8000/document.json/'
+    url = 'http://localhost:8000/document/5/?format=json'
     # params = {'APPID': document_key, 'q': city, 'units': 'metric'}
     response = requests.get(url)
     document = response.json()
