@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import filedialog
 import requests
 from functools import partial
 
@@ -22,7 +23,7 @@ def format_response(document):
         # signed = document['signed']
         # status = document['status']
         # author = document['author']
-        #final_str = 'Address: %s, %s \nTitle: %s \nBody: %s \nDate: %s \nSigned: %s \nStatus: %s \nAuthor' % (address, title, body, date, signed, status, author)
+        final_str = 'Address: %s, %s \nTitle: %s \nBody: %s \nDate' % (address, title, body, date)
     except:
         final_str = 'There was a problem retrieving that information'
 
@@ -37,17 +38,19 @@ def get_document():
     document = response.json()
     label_body['text'] = format_response(document)
     print(response.json())
+    print(document['title'])
 
 
 root = Tk()
-root.title("Document app")
+root.title("DocManSys")
 root.iconbitmap('')
 
 canvas = Canvas(root, height=HEIGHT, width=WIDTH)
 canvas.pack()
 
+
 # login frame
-top_frame = Frame(root, bd=5, bg='#ffc1ff')  # bd - border
+top_frame = Frame(root, bd=5, bg='#80c1ff')  # bd - border
 usernameLabel = Label(top_frame, text="User Name")
 username = StringVar()
 usernameEntry = Entry(top_frame, textvariable=username)
@@ -82,23 +85,26 @@ label_address.place(relwidth=1, relheight=1)
 
 #address1 frame
 address1_frame = Frame(root, bd=2, bg='#80c1ff')
-# label1_address = Label(address1_frame, font=('Courier', 20), anchor='nw', justify='left', bd=4)
+label1_address = Label(address1_frame, font=('Courier', 20), anchor='nw', justify='left', bd=4)
 address1_frame.place(relx=0.25, rely=0.18, relwidth=0.40, relheight=0.15, anchor='n')
-# label1_address.place(relwidth=1, relheight=1)
+label1_address.place(relwidth=1, relheight=1)
 
-#title frame
-body_frame = Frame(root, bd=2, bg='#80c1ff')
-label_body = Label(body_frame, font=('Courier', 16), anchor='nw', justify='left', bd=4)
+# title frame
+title_frame = Frame(root, bd=2, bg='#80c1ff')
+title_body = Label(title_frame, font=('Courier', 16), anchor='nw', justify='left', bd=4)
 
-body_frame.place(relx=0.5, rely=0.34, relwidth=0.7, relheight=0.04, anchor='n')
-label_body.place(relwidth=1, relheight=1)
+title_frame.place(relx=0.5, rely=0.34, relwidth=0.7, relheight=0.04, anchor='n')
+title_body.place(relwidth=1, relheight=1)
 
 # body frame
 body_frame = Frame(root, bd=2, bg='#80c1ff')
-label_body = Label(body_frame, font=('Courier', 12), anchor='nw', justify='left', bd=4)
+scrollbar = Scrollbar(body_frame)
+label_body = Canvas(body_frame, bd=4)
 
 body_frame.place(relx=0.5, rely=0.40, relwidth=0.9, relheight=0.4, anchor='n')
+scrollbar.pack(side=RIGHT, fill=Y)
 label_body.place(relwidth=1, relheight=1)
+
 
 #date frame
 date_frame = Frame(root, bd=2, bg='#80c1ff')
@@ -113,6 +119,10 @@ label_signature = Label(signature_frame, font=('Courier', 20), anchor='nw', just
 
 signature_frame.place(relx=0.75, rely=0.85, relwidth=0.40, relheight=0.10, anchor='n')
 label_signature.place(relwidth=1, relheight=1)
+
+# status bar
+status_bar = Label(root, text='Status', anchor=E)
+status_bar.pack(fill=X, side=BOTTOM, ipady=5)
 
 root.mainloop()
 

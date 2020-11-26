@@ -4,13 +4,13 @@ from .serializers import DocumentSerializer
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.views import APIView
-from rest_framework.authentication import SessionAuthentication, BasicAuthentication #, TokenAuthentication
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication  #, TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 
 
 class DocumentAPIView(APIView):
-    #authentication_classes = [SessionAuthentication, BasicAuthentication] #, TokenAuthentication
-    #permission_classes = [IsAuthenticated]
+    authentication_classes = [SessionAuthentication, BasicAuthentication]  #, TokenAuthentication
+    permission_classes = [IsAuthenticated]
 
     def get(self, request):
         documents = Document.objects.all()
@@ -27,8 +27,8 @@ class DocumentAPIView(APIView):
 
 
 class DocumentDetails(APIView):
-    #authentication_classes = [SessionAuthentication, BasicAuthentication]
-    #permission_classes = [IsAuthenticated]
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
 
     def get_object(self, id):
         try:
