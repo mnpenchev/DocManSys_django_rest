@@ -25,7 +25,7 @@ SECRET_KEY = 'v8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'ec2-18-133-240-33.eu-west-2.compute.amazonaws.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'ec2-35-176-9-84.eu-west-2.compute.amazonaws.com']
 
 
 # Application definition
