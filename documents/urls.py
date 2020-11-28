@@ -5,3 +5,4 @@ urlpatterns = [
     path('document/', DocumentAPIView.as_view()),
     path('document/<int:id>/', DocumentDetails.as_view()),
 ]
+
