@@ -13,3 +13,5 @@ profile: http://ec2-35-176-9-84.eu-west-2.compute.amazonaws.com/profile/
 login: http://ec2-35-176-9-84.eu-west-2.compute.amazonaws.com/login
 
 document:  http://ec2-35-176-9-84.eu-west-2.compute.amazonaws.com/api/document/
+
+Authentication requires token, when a new user is registered ot logged a taken is created. It can be easily simulated with Chrome extention ModHeader: https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj?hl
