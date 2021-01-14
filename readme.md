@@ -4,14 +4,14 @@ App with following features: Create and update user profiles, Login and authenti
 creating, submitting and receiving documents.
 
 
-This app is running on AWS: 
+This app endpoints are: 
 
-API root: http://ec2-35-176-9-84.eu-west-2.compute.amazonaws.com/
+API root: http://localhost/
 
-Profile: http://ec2-35-176-9-84.eu-west-2.compute.amazonaws.com/profile/
+Profile: http://localhost/profile/
 
-Login: http://ec2-35-176-9-84.eu-west-2.compute.amazonaws.com/login
+Login: http://localhost/login
 
-Document:  http://ec2-35-176-9-84.eu-west-2.compute.amazonaws.com/api/document/
+Document:  http://localhost/api/document/
 
 Authentication requires token, when a new user is registered ot logged an Auth token is created. It can be easily simulated with Chrome extention ModHeader: https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj?hl
